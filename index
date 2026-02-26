@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizadores Gráficos - 6º Primaria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #f0f7ff;
+        }
+        .card-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #eef2ff 100%);
+        }
+        .active-tab {
+            border-bottom: 4px solid #4f46e5;
+            color: #4f46e5;
+        }
+        .organizer-content {
+            display: none;
+        }
+        .organizer-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-12">
+
+    <!-- Header Section -->
+    <header class="bg-indigo-600 text-white py-12 px-6 shadow-lg text-center relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <svg viewBox="0 0 100 100" class="w-full h-full">
+                <circle cx="10" cy="10" r="5" fill="white" />
+                <rect x="80" y="20" width="10" height="10" fill="white" />
+                <polygon points="50,50 60,70 40,70" fill="white" />
+            </svg>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Organizadores Gráficos</h1>
+        <p class="text-xl opacity-90 max-w-2xl mx-auto">Herramientas visuales para ordenar tus ideas y aprender mejor. ¡Explóralas!</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto mt-8 px-4">
+        
+        <!-- Navigation Tabs -->
+        <div class="flex overflow-x-auto bg-white rounded-xl shadow-md mb-8 no-scrollbar scroll-smooth">
+            <button onclick="showOrganizer('mapa-conceptual')" class="tab-btn active-tab flex-shrink-0 px-6 py-4 font-bold hover:bg-indigo-50 transition-colors" id="btn-mapa-conceptual">Mapa Conceptual</button>
+            <button onclick="showOrganizer('mapa-mental')" class="tab-btn flex-shrink-0 px-6 py-4 font-bold hover:bg-indigo-50 transition-colors" id="btn-mapa-mental">Mapa Mental</button>
+            <button onclick="showOrganizer('cuadro-sinoptico')" class="tab-btn flex-shrink-0 px-6 py-4 font-bold hover:bg-indigo-50 transition-colors" id="btn-cuadro-sinoptico">Cuadro Sinóptico</button>
+            <button onclick="showOrganizer('linea-tiempo')" class="tab-btn flex-shrink-0 px-6 py-4 font-bold hover:bg-indigo-50 transition-colors" id="btn-linea-tiempo">Línea de Tiempo</button>
+            <button onclick="showOrganizer('diagrama-venn')" class="tab-btn flex-shrink-0 px-6 py-4 font-bold hover:bg-indigo-50 transition-colors" id="btn-diagrama-venn">Diagrama de Venn</button>
+            <button onclick="showOrganizer('ishikawa')" class="tab-btn flex-shrink-0 px-6 py-4 font-bold hover:bg-indigo-50 transition-colors" id="btn-ishikawa">Espina de Pescado</button>
+        </div>
+
+        <!-- Content Area -->
+        <div id="content-display" class="bg-white rounded-2xl shadow-xl p-8 card-gradient min-h-[500px]">
+            
+            <!-- Mapa Conceptual -->
+            <div id="mapa-conceptual" class="organizer-content active">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-indigo-800 mb-4">El Mapa Conceptual</h2>
+                        <div class="space-y-4 text-gray-700">
+                            <p><strong class="text-indigo-600">¿Qué es?</strong> Es una red de conceptos jerarquizados. Se lee de arriba hacia abajo.</p>
+                            <p><strong class="text-indigo-600">Componentes:</strong> Conceptos (en recuadros) y palabras de enlace (verbos o preposiciones sobre las flechas).</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400 italic">
+                                "Sirve para organizar información compleja y ver cómo se relacionan los conceptos clave."
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-inner border border-indigo-100 flex justify-center">
+                        <!-- SVG Representing Conceptual Map -->
+                        <svg width="240" height="200" viewBox="0 0 240 200">
+                            <rect x="70" y="10" width="100" height="40" rx="5" fill="#4f46e5" />
+                            <text x="120" y="35" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Idea Principal</text>
+                            
+                            <line x1="120" y1="50" x2="60" y2="100" stroke="#94a3b8" stroke-width="2" />
+                            <line x1="120" y1="50" x2="180" y2="100" stroke="#94a3b8" stroke-width="2" />
+                            
+                            <text x="80" y="80" text-anchor="middle" fill="#6366f1" font-size="10">se divide en</text>
+                            
+                            <rect x="20" y="100" width="80" height="35" rx="5" fill="#818cf8" />
+                            <text x="60" y="122" text-anchor="middle" fill="white" font-size="10">Subtema A</text>
+                            
+                            <rect x="140" y="100" width="80" height="35" rx="5" fill="#818cf8" />
+                            <text x="180" y="122" text-anchor="middle" fill="white" font-size="10">Subtema B</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mapa Mental -->
+            <div id="mapa-mental" class="organizer-content">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-pink-600 mb-4">El Mapa Mental</h2>
+                        <div class="space-y-4 text-gray-700">
+                            <p><strong class="text-pink-500">¿Qué es?</strong> Un diagrama que nace de una idea central y se expande en todas direcciones (radial).</p>
+                            <p><strong class="text-pink-500">Clave:</strong> Usa muchos colores, dibujos y ramas curvas. ¡Es muy creativo!</p>
+                            <div class="bg-pink-50 p-4 rounded-lg border-l-4 border-pink-400 italic">
+                                "Es ideal para tormentas de ideas (brainstorming) y para memorizar usando imágenes."
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-inner border border-pink-100 flex justify-center">
+                        <svg width="240" height="200" viewBox="0 0 240 200">
+                            <circle cx="120" cy="100" r="35" fill="#db2777" />
+                            <text x="120" y="105" text-anchor="middle" fill="white" font-size="12" font-weight="bold">CENTRO</text>
+                            
+                            <path d="M120 65 Q 120 20 160 30" stroke="#f472b6" stroke-width="6" fill="none" />
+                            <path d="M155 100 Q 210 100 210 130" stroke="#f472b6" stroke-width="6" fill="none" />
+                            <path d="M85 100 Q 30 100 30 70" stroke="#f472b6" stroke-width="6" fill="none" />
+                            <path d="M120 135 Q 120 180 80 170" stroke="#f472b6" stroke-width="6" fill="none" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cuadro Sinóptico -->
+            <div id="cuadro-sinoptico" class="organizer-content">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-emerald-700 mb-4">El Cuadro Sinóptico</h2>
+                        <div class="space-y-4 text-gray-700">
+                            <p><strong class="text-emerald-600">¿Qué es?</strong> Una forma de resumir un tema usando llaves <strong>{</strong>.</p>
+                            <p><strong class="text-emerald-600">Estructura:</strong> Idea General → Llave → Ideas Principales → Llave → Detalles.</p>
+                            <div class="bg-emerald-50 p-4 rounded-lg border-l-4 border-emerald-400 italic">
+                                "Perfecto para clasificar y ver la jerarquía de un tema de forma horizontal."
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-inner border border-emerald-100 flex justify-center">
+                        <div class="font-mono text-emerald-800 text-sm md:text-base">
+                            TEMA <span class="text-3xl align-middle">{</span> 
+                            <div class="inline-block align-middle ml-2">
+                                Idea 1 <span class="text-2xl align-middle">{</span> detalle... <br>
+                                Idea 2 <span class="text-2xl align-middle">{</span> detalle...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Línea de Tiempo -->
+            <div id="linea-tiempo" class="organizer-content">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-amber-600 mb-4">Línea de Tiempo</h2>
+                        <div class="space-y-4 text-gray-700">
+                            <p><strong class="text-amber-500">¿Qué es?</strong> Una representación gráfica de eventos en orden cronológico.</p>
+                            <p><strong class="text-amber-500">Uso:</strong> Se coloca una línea recta y puntos que marcan fechas y hechos importantes.</p>
+                            <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-400 italic">
+                                "Fundamental en Historia para entender qué pasó antes y qué pasó después."
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-inner border border-amber-100 flex justify-center overflow-hidden">
+                        <svg width="280" height="150" viewBox="0 0 280 150">
+                            <line x1="20" y1="75" x2="260" y2="75" stroke="#d97706" stroke-width="4" />
+                            <polygon points="260,70 275,75 260,80" fill="#d97706" />
+                            
+                            <circle cx="50" cy="75" r="6" fill="#fbbf24" stroke="#d97706" />
+                            <text x="50" y="60" text-anchor="middle" font-size="10">1810</text>
+                            
+                            <circle cx="140" cy="75" r="6" fill="#fbbf24" stroke="#d97706" />
+                            <text x="140" y="60" text-anchor="middle" font-size="10">1945</text>
+                            
+                            <circle cx="230" cy="75" r="6" fill="#fbbf24" stroke="#d97706" />
+                            <text x="230" y="60" text-anchor="middle" font-size="10">2024</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diagrama de Venn -->
+            <div id="diagrama-venn" class="organizer-content">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-purple-700 mb-4">Diagrama de Venn</h2>
+                        <div class="space-y-4 text-gray-700">
+                            <p><strong class="text-purple-600">¿Qué es?</strong> Círculos que se cruzan para mostrar qué tienen en común dos temas.</p>
+                            <p><strong class="text-purple-600">Diferencias y Semejanzas:</strong> Lo que es único va en los lados; lo que comparten va en el centro.</p>
+                            <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-400 italic">
+                                "Muy útil para comparar personajes de un libro o tipos de animales."
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-inner border border-purple-100 flex justify-center">
+                        <svg width="240" height="180" viewBox="0 0 240 180">
+                            <circle cx="90" cy="90" r="70" fill="rgba(168, 85, 247, 0.3)" stroke="#a855f7" stroke-width="2" />
+                            <circle cx="150" cy="90" r="70" fill="rgba(59, 130, 246, 0.3)" stroke="#3b82f6" stroke-width="2" />
+                            <text x="60" y="95" text-anchor="middle" font-size="10" font-weight="bold">A</text>
+                            <text x="180" y="95" text-anchor="middle" font-size="10" font-weight="bold">B</text>
+                            <text x="120" y="95" text-anchor="middle" font-size="10" font-weight="bold">Ambos</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diagrama de Ishikawa -->
+            <div id="ishikawa" class="organizer-content">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-700 mb-4">Espina de Pescado</h2>
+                        <div class="space-y-4 text-gray-700">
+                            <p><strong class="text-slate-600">¿Qué es?</strong> También llamado diagrama de causa-efecto.</p>
+                            <p><strong class="text-slate-600">Función:</strong> La cabeza del pez es el problema y las espinas son las causas que lo provocan.</p>
+                            <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-slate-400 italic">
+                                "Úsalo cuando necesites analizar por qué ocurre algo difícil de entender."
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-inner border border-slate-100 flex justify-center">
+                        <svg width="240" height="160" viewBox="0 0 240 160">
+                            <line x1="20" y1="80" x2="180" y2="80" stroke="#475569" stroke-width="4" />
+                            <polygon points="180,60 220,80 180,100" fill="#475569" />
+                            
+                            <!-- Spines -->
+                            <line x1="60" y1="80" x2="100" y2="30" stroke="#94a3b8" stroke-width="2" />
+                            <line x1="120" y1="80" x2="160" y2="30" stroke="#94a3b8" stroke-width="2" />
+                            <line x1="60" y1="80" x2="100" y2="130" stroke="#94a3b8" stroke-width="2" />
+                            <line x1="120" y1="80" x2="160" y2="130" stroke="#94a3b8" stroke-width="2" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Benefits Summary -->
+        <section class="mt-12">
+            <h3 class="text-2xl font-bold text-center text-gray-800 mb-8">¿Por qué usar organizadores gráficos?</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-md text-center border-t-4 border-blue-500">
+                    <div class="text-4xl mb-3">🧠</div>
+                    <h4 class="font-bold mb-2">Mejora la Memoria</h4>
+                    <p class="text-sm text-gray-600">Al visualizar la información, es mucho más fácil recordarla para los exámenes.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md text-center border-t-4 border-green-500">
+                    <div class="text-4xl mb-3">⏱️</div>
+                    <h4 class="font-bold mb-2">Ahorra Tiempo</h4>
+                    <p class="text-sm text-gray-600">Sintetizan textos largos en esquemas rápidos de leer y repasar.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md text-center border-t-4 border-yellow-500">
+                    <div class="text-4xl mb-3">🎨</div>
+                    <h4 class="font-bold mb-2">Pensamiento Creativo</h4>
+                    <p class="text-sm text-gray-600">Te ayudan a encontrar nuevas conexiones entre ideas que no habías visto.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-16 text-center text-gray-500 text-sm">
+        <p>Recurso Educativo - 6º Grado de Primaria</p>
+        <p class="mt-2">Creado para facilitar el aprendizaje visual.</p>
+    </footer>
+
+    <script>
+        function showOrganizer(id) {
+            // Ocultar todo el contenido
+            const allContent = document.querySelectorAll('.organizer-content');
+            allContent.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Quitar clase activa de botones
+            const allButtons = document.querySelectorAll('.tab-btn');
+            allButtons.forEach(btn => {
+                btn.classList.remove('active-tab');
+            });
+
+            // Mostrar el seleccionado
+            document.getElementById(id).classList.add('active');
+            document.getElementById('btn-' + id).classList.add('active-tab');
+
+            // Scroll suave si está en móvil
+            if (window.innerWidth < 768) {
+                document.getElementById('content-display').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
